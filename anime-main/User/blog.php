@@ -107,7 +107,7 @@
                         <div class="col-lg-12">
                             <div class="blog__item set-bg" data-setbg="img/blog/blog-1.jpg">
                                 <div class="blog__item__text">
-                                    <p><span class="icon_calendar"></span> 01 March 2020</p>
+                                    <p><span class="icon_calendar"></span> 01 March 202</p>
                                     <h4><a href="#">Yuri Kuma Arashi Viverra Tortor Pharetra</a></h4>
                                 </div>
                             </div>
