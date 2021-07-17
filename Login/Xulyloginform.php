@@ -21,7 +21,7 @@ if (isset($_POST['btn_Login'])){
             $_SESSION['username'] = $username;
             //thực hiện hành động sau khi lưu thông tin vào session
             //ở đây mình tiến hành chuyển hướng trang web tới một trang gọi là home.php
-            header('location:../Login/home.php');
+            header('location:../User/index.php');
         }
     }
             

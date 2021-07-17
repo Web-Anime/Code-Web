@@ -97,7 +97,7 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>Login</h3>
-                        <form action="#" action="../Login/Xulyloginform.php" method="POST" onsubmit="return validateLogin()">
+                        <form action="../Login/Xulyloginform.php" method="POST" onsubmit="return validateLogin()">
                             <div class="input__item">
                                 <input type="username" placeholder="Email address" name="username">
                                 <span class="icon_mail"></span>

@@ -49,7 +49,7 @@
                                 <li class="active"><a href="./index.php">TRANG CHỦ</a></li>
                                 <li><a href="./categories.php">THỂ LOẠI <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
-                                        <li><a href="tl-haihuoc.php">Hài Hước</a></li>
+                                        <li><a href="../User/tl-haihuoc.php">Hài Hước</a></li>
                                         <li><a href="tl-hanhdong.php">Hàng Động</a></li>
                                         <li><a href="tl-shounen.php">Shounen</a></li>
                                         <li><a href="tl-isekai.php">Isekai</a></li>
