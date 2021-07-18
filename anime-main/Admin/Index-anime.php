@@ -4,21 +4,144 @@
 <head>
     <meta charset="UTF-8">
     <title>ADMIN ANIME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <style>
-.btn {
-  border: none;
-  color: white;
-  padding: 14px 28px;
-  padding-top: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 10px;
+* {
+  box-sizing: border-box;
 }
-.danger {background-color: #f44336;} /* Red */ 
-.danger:hover {background: #da190b;}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 10%; /* IE10 */
+  flex: 10%;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 80%; /* IE10 */
+  flex: 80%;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+/*---------------------------------------------------------------------------- */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 20px 25px 20px 25px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: yellow;
+}
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: green;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+.btn {
+  background-color: #000080;
+  color: white;
+  padding: 12px;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.btn:hover {
+  background-color: yellow;
+  color:black;
+}
+.btn-button {
+  background-color: #000080;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+.btn-button:hover {
+  background-color: yellow;
+  color:black;
+}
 </style>
 
 <body>
@@ -54,16 +177,28 @@
     <!-- Hero Section End -->
 
     <!-- Product Section Begin -->
-    <section class="product spad">
-        <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    
+                <div class="side">
+                    <div class="sidenav">
+                        <img src="https://cdn.tgdd.vn//GameApp/-1//o1-800x450.jpg" style="width:100%">
+                        <a href="Index-anime.php"><i class="bi bi-house-door"></i>ANIME</a>
+                        <button class="dropdown-btn">TOP ANIME 
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                          <a href="index-topanime.php">THEO NGÀY</a>
+                          <a href="#">THEO THÁNG</a>
+                          <a href="#">THEO NĂM</a>
+                        </div>
+                        <a href="#clients">LỊCH CHIẾU</a>
+                        <a href="#contact">LIÊN HỆ</a>
+                        <a href="#contact">NGƯỜI DÙNG</a>
+                    </div>
+                </div>
+                <div class="main">
                     <h3 align="center" style="color:white;">DANH SÁCH ANIME</h3>
-                    <table border="1" cellspacing="0" cellpadding="0" style="color:black; background-color:white;margin-top:10px;">
-                        <tr >
-                            <td colspan="12" align="center"><button class="btn danger" type="button" onclick="myFunction()">THÊM</button></td>  
-                        </tr>
+                    <table border="1" cellspacing="0" cellpadding="0" style="color:white;margin-top:10px;">
+                        <input type="submit" value="THÊM MỚI" class="btn" onclick="myFunction()">   
                         <tr style="text-align:center;">
                             <th>ID</th>
                             <th>DANH MỤC</th>
@@ -109,8 +244,8 @@
                             <td><?php echo $namphathanh ?></td>
                             <td><?php echo $luotxem ?></td>
                             <td>
-                                <a href="xulyxoa-anime.php?id=<?php echo $id; ?>">XÓA</a>
-                                <a href="sua-anime.php?id=<?php echo $id; ?>">SỬA</a>
+                                <a href="xulyxoa-anime.php?id=<?php echo $id; ?>"><input type="submit" value="XÓA" class="btn-button"></a>
+                                <a href="sua-anime.php?id=<?php echo $id; ?>"><input type="submit" value="SỬA" class="btn-button"></a>
                             </td>
                         </tr>
                         <?php 
@@ -122,8 +257,6 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </section>
 <!-- Product Section End -->
 
 <!-- Footer Section Begin -->
@@ -171,4 +304,21 @@
     function myFunction(){
         location.replace("them-anime.php");
     }
+</script>
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
 </script>
