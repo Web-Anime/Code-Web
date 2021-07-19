@@ -24,7 +24,58 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+<style>
+ input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
 
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Style the container/contact section */
+.container-lienhe {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.column-lienhe {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row-lienhe:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column-lienhe, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -89,8 +140,8 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="normal__breadcrumb__text">
-                        <h2>Blog</h2>
-
+                        <h2>LIÊN HỆ</h2>
+                        
                     </div>
                 </div>
             </div>
@@ -102,11 +153,30 @@
     <section class="blog spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    
-                </div>
-                <div class="col-lg-6">
-                    
+                <div class="col-lg-12">
+
+                    <div class="row-lienhe">
+                        <div class="column-lienhe">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11802.735669122061!2d107.58331848394333!3d16.447022736814397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a1457c1ffc2d%3A0x32d40f91421ce10d!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBQaMO6IFh1w6Ju!5e0!3m2!1svi!2s!4v1626520039955!5m2!1svi!2s" width="520" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="column-lienhe">
+                            <form action="/action_page.php">
+                                <label for="fname">First Name</label>
+                                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                                <label for="lname">Last Name</label>
+                                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                                <label for="country">Country</label>
+                                    <select id="country" name="country">
+                                        <option value="australia">Australia</option>
+                                        <option value="canada">Canada</option>
+                                        <option value="usa">USA</option>
+                                    </select>
+                                <label for="subject">Subject</label>
+                                <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                                <input type="submit" value="Submit">
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

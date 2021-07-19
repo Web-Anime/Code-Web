@@ -7,7 +7,7 @@
     <meta name="keywords" content="Anime, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Anime | Template</title>
+    <title>Thể Loại | Giới Thiệu</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
                                 </li>
                                 <li><a href="#">LỊCH CHIẾU</a></li>
                                 <li><a href="#">LIÊN HỆ</a></li>
-                                <li><a href="#">BLOG</a></li>
+                                <li><a href="blog.php">BLOG</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -74,7 +74,7 @@
                 <div class="col-lg-2">
                     <div class="header__right">
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="./login.html"><span class="icon_profile"></span></a>
+                        <a href="login.php"><span class="icon_profile"></span></a>
                     </div>
                 </div>
             </div>
@@ -180,32 +180,33 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
-                        <div class="anime__details__sidebar">
+                    <?php require_once("Connection.php"); ?>
+                    <?php
+                        $sql = "select * from anime ORDER BY id LIMIT 0, 5";
+                        $query = mysqli_query($conn, $sql);
+                    ?>
+                    <div class="product__sidebar">
+                        <div class="product__sidebar__view">
                             <div class="section-title">
                                 <h5>CÓ THỂ BẠN SẼ THÍCH</h5>
                             </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-1.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Boruto: Naruto next generations</a></h5>
+                            <?php   
+                                while ($data = mysqli_fetch_array($query)) {
+                            ?>  
+                            <div class="filter__gallery">
+                                <div class="product__sidebar__view__item set-bg mix day years"
+                                data-setbg="<?php echo $data['anh']; ?>">
+                                <div class="ep"><?php echo $data['sotap']; ?></div>
+                                <div class="view"><i class="fa fa-eye"></i><?php echo $data['luotxem']; ?></div>
+                                <h5><a href="anime-details.php?id=<?php echo $data['id']; ?>"><?php echo $data['tenanime']; ?></a></h5>
                             </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-2.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
                             </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-3.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Sword art online alicization war of underworld</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-4.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
-                            </div>
+                            <?php 
+                            }
+                            ?>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </section>

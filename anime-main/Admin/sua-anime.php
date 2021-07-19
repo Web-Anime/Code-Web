@@ -2,23 +2,134 @@
 <html lang="zxx">
 
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>ADMIN ANIME</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <style>
-.btn {
-  border: none;
-  color: white;
-  padding: 14px 28px;
-  padding-top: 10px;
+.body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.row {  
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.side {
+  -ms-flex: 10%;
+  flex: 10%;
+}
+.main {   
+  -ms-flex: 80%;
+  flex: 80%;
+  padding: 20px;
+}
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+/*---------------------------------------------------------------------------- */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+}
+.sidenav a, .dropdown-btn {
+  padding: 20px 25px 20px 25px;
+  text-decoration: none;
   font-size: 16px;
+  font-weight: 700;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
   cursor: pointer;
+  outline: none;
+}
+.sidenav a:hover, .dropdown-btn:hover {
+  color: yellow;
+}
+.active {
+  background-color: green;
+  color: white;
+}
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+/* --------------------------------------------------------------------------- */
+.rowadd {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.col-50 {
+  -ms-flex: 40%;
+  flex: 40%;
+}
+.col-75 {
+  -ms-flex: 40%;
+  flex: 40%;
+}
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+.containeradd {
+  padding: 5px 40px 25px 30px;
   border-radius: 10px;
 }
-.danger {background-color: #f44336;} /* Red */ 
-.danger:hover {background: #da190b;}
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+label {
+  margin-bottom: 10px;
+  display: block;
+  color:white;
+  font-weight: 600;
+}
+.btn {
+  background-color: #000080;
+  color: white;
+  padding: 12px;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+}
+.btn:hover {
+  background-color: yellow;
+  color:black;
+}
+a {
+  color: #2196F3;
+}
+hr {
+  border: 1px solid lightgrey;
+}
 </style>
 
 <body>
@@ -35,18 +146,12 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="Index-anime.php">ANIME</a></li>
-                                <li><a href="index-topanime.php">TOP ANIME</a></li>
-                                <li><a href="#">LỊCH CHIẾU</a></li>
-                                <li><a href="#">LIÊN HỆ</a></li>
-                                <li><a href="#">BLOG</a></li>
-                                <li><a href="#">TÀI KHOẢNG</a></li>
+                                <li></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
-            <div id="mobile-menu-wrap"></div>
         </div>
     </header>
     <!-- Header End -->
@@ -54,127 +159,87 @@
     <!-- Hero Section End -->
 
     <!-- Product Section Begin -->
-    <section class="product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                        <?php 
-                        $conn = mysqli_connect("localhost", "root", "", "anime");
-                        $id = $_GET["id"];
-                        $sql = "SELECT * FROM anime WHERE id = '$id'";
-                        $result = mysqli_query($conn, $sql);
+    <div class="row">
+                <div class="side">
+                    <div class="sidenav">
+                        <img src="https://cdn.tgdd.vn//GameApp/-1//o1-800x450.jpg" style="width:100%">
+                        <a href="Index-anime.php">ANIME</a>
+                        <button class="dropdown-btn">TOP ANIME 
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-container">
+                          <a href="#">THEO NGÀY</a>
+                          <a href="#">THEO THÁNG</a>
+                          <a href="#">THEO NĂM</a>
+                        </div>
+                        <a href="#clients">LỊCH CHIẾU</a>
+                        <a href="#contact">LIÊN HỆ</a>
+                        <a href="#contact">NGƯỜI DÙNG</a>
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="rowadd">
+                        <div class="col-75">
+                            <div class="containeradd">
+                                <?php 
+                                $conn = mysqli_connect("localhost", "root", "", "anime");
+                                $id = $_GET["id"];
+                                $sql = "SELECT * FROM anime WHERE id = '$id'";
+                                $result = mysqli_query($conn, $sql);
 
-                        while($row = mysqli_fetch_assoc($result))
-                        {
-                            $id = $row["id"];
-                            $danhmuc = $row["danhmuc"];
-                            $anh = $row["anh"];
-                            $tenanime = $row["tenanime"];
-                            $tenindex = $row["tenindex"];
-                            $mota = $row["mota"];
-                            $sotap = $row["sotap"];
-                            $film = $row["film"];
-                            $trangthai = $row["trangthai"];
-                            $namphathanh = $row["namphathanh"];
-                            $luotxem = $row["luotxem"];
-                        }
-                        ?>
-                        <form action="xulysua-anime.php" method="post">
-                            <h3 align="center" style="color:white;">SỬA ANIME</h3>
-                            <table style="color:black; background-color:white;margin-left:36%;margin-top:10px;">
-                                <tr>
-                                    <td>ID</td>
-                                    <td><input type="text" name="txt_id" readonly="readonly" value= "<?php echo $id ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td>DANH MỤC</td>
-                                    <td><input type="text" name="txt_danhmuc" value= "<?php echo $danhmuc ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td>ẢNH</td>
-                                    <td><input type="text" name="txt_anh" value= "<?php echo $anh ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td>TÊN ANIME</td>
-                                    <td><input type="text" name="txt_tenanime" value= "<?php echo $tenanime ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td>TÊN INDEX</td>
-                                    <td><input type="text" name="txt_tenindex" value= "<?php echo $tenindex ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td>MÔ TẢ</td>
-                                    <td><input type="text" name="txt_mota" value= "<?php echo $mota ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td>SỐ TẬP</td>
-                                    <td><input type="text" name="txt_sotap" value= "<?php echo $sotap ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td>FILM</td>
-                                    <td><input type="text" name="txt_film" value= "<?php echo $film ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td>TRẠNG THÁI</td>
-                                    <td><input type="text" name="txt_trangthai" value= "<?php echo $trangthai ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td>NĂM PH</td>
-                                    <td><input type="text" name="txt_namphathanh" value= "<?php echo $namphathanh ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td>LƯỢT XEM</td>
-                                    <td><input type="text" name="txt_luotxem" value= "<?php echo $luotxem ?>" size="30"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="center">
-                                        <input type="submit" class="btn danger" name="btnSave" value="SỬA">
-                                    </td>
-                                </tr>
-                            </table>
-                        </form> 
-                    
+                                while($row = mysqli_fetch_assoc($result))
+                                {
+                                    $id = $row["id"];
+                                    $danhmuc = $row["danhmuc"];
+                                    $anh = $row["anh"];
+                                    $tenanime = $row["tenanime"];
+                                    $tenindex = $row["tenindex"];
+                                    $mota = $row["mota"];
+                                    $sotap = $row["sotap"];
+                                    $film = $row["film"];
+                                    $trangthai = $row["trangthai"];
+                                    $namphathanh = $row["namphathanh"];
+                                    $luotxem = $row["luotxem"];
+                                }
+                                ?>
+                                <form action="xulysua-anime.php" method="post">
+                                    <h3 style="text-align:center;color:white;font-weight:700;margin-bottom:10px;">SỬA ANIME</h3>
+                                    <div class="rowadd">
+                                        <div class="col-50">
+                                            <label><i class="fa fa-user"></i> ID</label>
+                                                <input type="text" name="txt_id" readonly="readonly" value= "<?php echo $id ?>">
+                                            <label><i class="fa fa-bars"></i> DANH MỤC</label>
+                                                <input type="text" name="txt_danhmuc" value= "<?php echo $danhmuc ?>">
+                                            <label><i class="fa fa-address-card-o"></i> ẢNH</label>
+                                                <input type="text" name="txt_anh" value= "<?php echo $anh ?>">
+                                            <label><i class="fa fa-file"></i> TÊN ANIME</label>
+                                                <input type="text" name="txt_tenanime" value= "<?php echo $tenanime ?>">
+                                            <label><i class="fa fa-file"></i> TÊN INDEX</label>
+                                                <input type="text" name="txt_tenindex" value= "<?php echo $tenindex ?>">
+                                            <label><i class="fa fa-institution"></i> MÔ TẢ</label>
+                                                <input type="text" name="txt_mota" value= "<?php echo $mota ?>">
+                                        </div>
+                                        <div class="col-50">
+                                            <label><i class="fa fa-user"></i> SỐ TẬP</label>
+                                                <input type="text" name="txt_sotap" value= "<?php echo $sotap ?>">
+                                            <label><i class="fa fa-envelope"></i> VIDEO</label>
+                                                <input type="text" name="txt_film" value= "<?php echo $film ?>">
+                                            <label><i class="fa fa-address-card-o"></i> TRẠNG THÁI</label>
+                                                <input type="text" name="txt_trangthai" value= "<?php echo $trangthai ?>">
+                                            <label><i class="fa fa-institution"></i> NĂM PHÁT HÀNH</label>
+                                                <input type="text" name="txt_namphathanh" value= "<?php echo $namphathanh ?>">
+                                            <label><i class="fa fa-institution"></i> LƯỢT XEM</label>
+                                                <input type="text" name="txt_luotxem" value= "<?php echo $luotxem ?>">
+                                        </div>
+
+                                    </div>
+                                    <input type="submit" value="SỬA" name="btnSave" class="btn">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-<!-- Product Section End -->
-
-<!-- Footer Section Begin -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="footer__logo">
-                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="footer__nav">
-                    
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-
-              </div>
-          </div>
-      </div>
-  </footer>
-  <!-- Footer Section End -->
-
-  <!-- Search model Begin -->
-  <div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch"><i class="icon_close"></i></div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
-<!-- Search model end -->
 
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
