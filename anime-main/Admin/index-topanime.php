@@ -149,24 +149,6 @@ body {
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="header__nav">
-                        <nav class="header__menu mobile-menu">
-                            <ul>
-                                <li></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
     <!-- Header End -->
 
     <!-- Hero Section End -->
@@ -185,9 +167,10 @@ body {
                           <a href="#">THEO THÁNG</a>
                           <a href="#">THEO NĂM</a>
                         </div>
-                        <a href="#clients">LỊCH CHIẾU</a>
-                        <a href="#contact">LIÊN HỆ</a>
-                        <a href="#contact">NGƯỜI DÙNG</a>
+                        <a href="index-lichchieu.php">LỊCH CHIẾU</a>
+                        <a href="index-lienhe.php">LIÊN HỆ</a>
+                        <a href="index-blog.php">BLOG</a>
+                        <a href="index-nguoidung.php">NGƯỜI DÙNG</a>
                     </div>
                 </div>
                 <div class="main">

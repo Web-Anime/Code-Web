@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>ADMIN ANIME</title>
+    <title>Admin Thêm Blog</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
@@ -162,20 +162,20 @@ hr {
                     <div class="rowadd">
                         <div class="col-75">
                             <div class="containeradd">
-                                <form action="xulydulieu-topanime.php" method="post">
-                                    <h3 style="text-align:center;color:white;font-weight:700;margin-bottom:10px;">THÊM TOP ANIME THAO NGÀY</h3>
+                                <form action="xulydulieu-lienhe.php" method="post">
+                                    <h3 style="text-align:center;color:white;font-weight:700;margin-bottom:10px;">THÊM BLOG</h3>
                                     <div class="rowadd">
                                         <div class="col-50">
                                             <label><i class="fa fa-user"></i> ID</label>
-                                                <input type="text" id="txt_id" name="txt_id" value="">
-                                            <label><i class="fa fa-bars"></i> ẢNH</label>
-                                                <input type="text" id="txt_anh" name="txt_anh" value="">
-                                            <label><i class="fa fa-address-card-o"></i> TÊN ANIME</label>
-                                                <input type="text" id="txt_tenanime" name="txt_tenanime" value="">
-                                            <label><i class="fa fa-file"></i> MÔ TẢ</label>
-                                                <input type="text" id="txt_mota" name="txt_mota" value="">
-                                            <label><i class="fa fa-file"></i> LƯỢT XEM</label>
-                                                <input type="text" id="txt_luotxem" name="txt_luotxem" value="">
+                                                <input type="text" id="txt_id" name="txt_id" value="" placeholder=" Ko cần nhập">
+                                            <label><i class="fa fa-bars"></i> HỌ & TÊN</label>
+                                                <input type="text" id="txt_hoten" name="txt_hoten" value="" placeholder=" Public/blog/aaa.jpg">
+                                            <label><i class="fa fa-address-card-o"></i> SDT</label>
+                                                <input type="text" id="txt_sdt" name="txt_sdt" value="" placeholder=" aaaaaaa">
+                                            <label><i class="fa fa-file"></i> EMAIL</label>
+                                                <input type="text" id="txt_email" name="txt_email" value="" placeholder=" aaaaaaa">
+                                            <label><i class="fa fa-file"></i> LỜI NHẮN</label>
+                                                <input type="text" id="txt_loinhan" name="txt_loinhan" value="" placeholder=" aaaaaaa">
                                         </div>
                                     </div>
                                     <input type="submit" value="THÊM" class="btn">

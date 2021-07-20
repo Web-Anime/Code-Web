@@ -138,25 +138,6 @@ hr {
         <div class="loader"></div>
     </div>
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="header__nav">
-                        <nav class="header__menu mobile-menu">
-                            <ul>
-                                <li></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header End -->
-
-    <!-- Hero Section End -->
 
     <!-- Product Section Begin -->
     <div class="row">
@@ -173,9 +154,9 @@ hr {
                           <a href="#">THEO NĂM</a>
                         </div>
                         <a href="index-lichchieu.php">LỊCH CHIẾU</a>
-                        <a href="#contact">LIÊN HỆ</a>
+                        <a href="index-lienhe.php">LIÊN HỆ</a>
                         <a href="index-blog.php">BLOG</a>
-                        <a href="#contact">NGƯỜI DÙNG</a>
+                        <a href="index-nguoidung.php">NGƯỜI DÙNG</a>
                     </div>
                 </div>
                 <div class="main">
