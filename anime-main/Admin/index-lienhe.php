@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ADMIN ANIME</title>
+    <title>ADMIN BLOG</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -150,6 +150,28 @@ body {
         <div class="loader"></div>
     </div>
 
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Section End -->
+
+    <!-- Product Section Begin -->
             <div class="row">
                 <div class="side">
                     <div class="sidenav">
@@ -157,7 +179,7 @@ body {
                         <a href="Index-anime.php"><i class="bi bi-house-door"></i>ANIME</a>
                         <button class="dropdown-btn">TOP ANIME 
                           <i class="fa fa-caret-down"></i>
-                        </button>
+                            </button>
                         <div class="dropdown-container">
                           <a href="index-topanime.php">THEO NGÀY</a>
                           <a href="#">THEO THÁNG</a>
@@ -166,60 +188,41 @@ body {
                         <a href="index-lichchieu.php">LỊCH CHIẾU</a>
                         <a href="index-lienhe.php">LIÊN HỆ</a>
                         <a href="index-blog.php">BLOG</a>
-                        <a href="index-nguoidung.php">NGƯỜI DÙNG</a>
+                        <a href="#contact">NGƯỜI DÙNG</a>
                     </div>
                 </div>
                 <div class="main">
-                    <h3 align="center" style="color:white;">DANH SÁCH ANIME</h3>
-                    <table border="1" cellspacing="0" cellpadding="0" style="color:white;margin-top:10px;">
-                        <input type="submit" value="THÊM MỚI" class="btn" onclick="myFunction()">   
-                        <tr style="text-align:center;">
-                            <th>ID</th>
-                            <th>DANH MỤC</th>
-                            <th>ẢNH</th>
-                            <th>TÊN ANIME</th>
-                            <th>TÊN INDEX</th>
-                            <th>MÔ TẢ</th>
-                            <th>SỐ TẬP</th>
-                            <th>FILM</th>
-                            <th>TRẠNG THÁI</th>
-                            <th>NĂM PH</th>
-                            <th>LƯỢT XEM</th>
-                            <th>TÁC VỤ</th>
+                    <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH BLOG</h3>
+                    <table border="1" align="center" cellspacing="0" cellpadding="0" witch="850px" style="color:white;">
+                        <input type="submit" value="THÊM MỚI" class="btn" onclick="myFunction()">
+                        <tr>
+                            <th align="center">ID</th>
+                            <th align="center">HỌ & TÊN</th>
+                            <th align="center">SDT</th>
+                            <th align="center">EMAIL</th>
+                            <th align="center">LỜI NHẮN</th>
+                            <th align="center">TÁC VỤ</th>
                         </tr>
                     <?php 
                     $conn = mysqli_connect("localhost", "root", "", "anime");
-                    $sql = "SELECT * FROM anime";
+                    $sql = "SELECT * FROM lienhe";
                     $result = mysqli_query($conn ,$sql);
                     while($row = mysqli_fetch_assoc($result))
                     {
                         $id = $row["id"];
-                        $danhmuc = $row["danhmuc"];
-                        $anh = $row["anh"];
-                        $tenanime = $row["tenanime"];
-                        $tenindex = $row["tenindex"];
-                        $mota = $row["mota"];
-                        $sotap = $row["sotap"];
-                        $film = $row["film"];
-                        $trangthai = $row["trangthai"];
-                        $namphathanh = $row["namphathanh"];
-                        $luotxem = $row["luotxem"];
+                        $hoten = $row["hoten"];
+                        $sdt = $row["sdt"];
+                        $email = $row["email"];
+                        $loinhan = $row["loinhan"];
                     ?>
                         <tr>
                             <td><?php echo $id ?></td>
-                            <td><?php echo $danhmuc ?></td>
-                            <td><?php echo $anh ?></td>
-                            <td><?php echo $tenanime ?></td>
-                            <td><?php echo $tenindex ?></td>
-                            <td><?php echo $mota ?></td>
-                            <td><?php echo $sotap ?></td>
-                            <td><?php echo $film ?></td>
-                            <td><?php echo $trangthai ?></td>
-                            <td><?php echo $namphathanh ?></td>
-                            <td><?php echo $luotxem ?></td>
+                            <td><?php echo $hoten?></td>
+                            <td><?php echo $sdt ?></td>
+                            <td><?php echo $email ?></td>
+                            <td><?php echo $loinhan ?></td>
                             <td>
-                                <a href="xulyxoa-anime.php?id=<?php echo $id; ?>"><input type="submit" value="XÓA" class="btn-button"></a>
-                                <a href="sua-anime.php?id=<?php echo $id; ?>"><input type="submit" value="SỬA" class="btn-button"></a>
+                                <a href="xulyxoa-lienhe.php?id=<?php echo $id; ?>"><input type="submit" value="XÓA" class="btn-button"></a>
                             </td>
                         </tr>
                         <?php 
@@ -227,7 +230,6 @@ body {
                         ?>
                         <?php 
                         mysqli_close($conn); ?>
-                       
                     </table>
                 </div>
             </div>
@@ -274,7 +276,7 @@ body {
 </html>
 <script>
     function myFunction(){
-        location.replace("them-anime.php");
+        location.replace("themdulieu-lienhe.php");
     }
 </script>
 <script>

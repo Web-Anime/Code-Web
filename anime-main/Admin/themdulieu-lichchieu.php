@@ -168,13 +168,14 @@ hr {
                           <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-container">
-                          <a href="#">THEO NGÀY</a>
+                            <a href="index-topanime.php">THEO NGÀY</a>
                           <a href="#">THEO THÁNG</a>
                           <a href="#">THEO NĂM</a>
                         </div>
-                        <a href="#clients">LỊCH CHIẾU</a>
-                        <a href="#contact">LIÊN HỆ</a>
-                        <a href="#contact">NGƯỜI DÙNG</a>
+                        <a href="index-lichchieu.php">LỊCH CHIẾU</a>
+                        <a href="index-lienhe.php">LIÊN HỆ</a>
+                        <a href="index-blog.php">BLOG</a>
+                        <a href="index-nguoidung.php">NGƯỜI DÙNG</a>
                     </div>
                 </div>
                 <div class="main">
