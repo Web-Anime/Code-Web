@@ -126,9 +126,9 @@
                                         <li><a href="theonam.php">Theo Năm</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">LỊCH CHIẾU</a></li>
-                                <li><a href="#">LIÊN HỆ</a></li>
-                                <li><a href="#">BLOG</a></li>
+                                <li><a href="lichchieu.php">LỊCH CHIẾU</a></li>
+                                <li><a href="lienhe.php">LIÊN HỆ</a></li>
+                                <li><a href="blog.php">BLOG</a></li>
                             </ul>
                         </nav>
                     </div>
