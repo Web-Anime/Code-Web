@@ -148,11 +148,11 @@
                 <div class="col-lg-8">
                     <div class="anime__details__form">
                         <div class="section-title">
-                            <h5>Your Comment</h5>
+                            <h5>BÌNH LUẬN</h5>
                         </div>
                         <form action="#">
-                            <textarea placeholder="Your Comment"></textarea>
-                            <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+                            <textarea placeholder="Aaa"></textarea>
+                            <button type="submit"><i class="fa fa-location-arrow"></i> GỬI</button>
                         </form>
                     </div>
                 </div>

@@ -112,22 +112,6 @@ body {
   float: right;
   padding-right: 8px;
 }
-.btn {
-  background-color: #000080;
-  color: white;
-  padding: 12px;
-  border: none;
-  width: 100%;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.btn:hover {
-  background-color: yellow;
-  color:black;
-}
 .btn-button {
   background-color: #000080;
   color: white;
@@ -192,9 +176,8 @@ body {
                     </div>
                 </div>
                 <div class="main">
-                    <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH BLOG</h3>
+                    <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH LIÊN HỆ</h3>
                     <table border="1" align="center" cellspacing="0" cellpadding="0" witch="850px" style="color:white;">
-                        <input type="submit" value="THÊM MỚI" class="btn" onclick="myFunction()">
                         <tr>
                             <th align="center">ID</th>
                             <th align="center">HỌ & TÊN</th>
@@ -274,11 +257,6 @@ body {
 <script src="js/main.js"></script>
 </body>
 </html>
-<script>
-    function myFunction(){
-        location.replace("themdulieu-lienhe.php");
-    }
-</script>
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");

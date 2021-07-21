@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 $sql = "INSERT INTO lienhe VALUES('$id','$hoten','$sdt','$email','$loinhan')";
 if(mysqli_query($conn, $sql))
 {
-    header('location: index-lienhe.php');
+    header('location: lienhe.php');
 }else {
     $result = "Loi them moi".mysqli_error($conn);
 }
