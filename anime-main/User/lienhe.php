@@ -7,7 +7,7 @@
     <meta name="keywords" content="Anime, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Anime | Template</title>
+    <title>Anime | Liên Hệ</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -132,48 +132,40 @@ input[type=submit]:hover {
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
-    <!-- Header End -->
-
-    <!-- Normal Breadcrumb Begin -->
-    <section class="normal-breadcrumb set-bg" data-setbg="">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="normal__breadcrumb__text">
-                        <h2>LIÊN HỆ</h2>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Normal Breadcrumb End -->
-
     <!-- Blog Section Begin -->
     <section class="blog spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    <div class="product__page__title">
+                            <div class="row">
+                                <div class="col-lg-10 col-md-10 col-sm-6">
+                                    <div class="section-title">
+                                        <h4>LIÊN HỆ</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-6">
 
+                                </div>
+                            </div>
+                        </div>
                     <div class="row-lienhe">
                         <div class="column-lienhe">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11802.735669122061!2d107.58331848394333!3d16.447022736814397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a1457c1ffc2d%3A0x32d40f91421ce10d!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBQaMO6IFh1w6Ju!5e0!3m2!1svi!2s!4v1626520039955!5m2!1svi!2s" width="520" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11802.735669122061!2d107.58331848394333!3d16.447022736814397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a1457c1ffc2d%3A0x32d40f91421ce10d!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBQaMO6IFh1w6Ju!5e0!3m2!1svi!2s!4v1626520039955!5m2!1svi!2s" width="520" height="590" style="border:0;padding-top: 10px;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                         <div class="column-lienhe">
-                            <form action="/action_page.php">
-                                <label for="fname">First Name</label>
-                                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                                <label for="lname">Last Name</label>
-                                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-                                <label for="country">Country</label>
-                                    <select id="country" name="country">
-                                        <option value="australia">Australia</option>
-                                        <option value="canada">Canada</option>
-                                        <option value="usa">USA</option>
-                                    </select>
-                                <label for="subject">Subject</label>
-                                <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
-                                <input type="submit" value="Submit">
+                            <form action="xulydulieu-lienhe.php" method="POST">
+                                <label style="color:white;font-size:18px;font-weight:700;">ID</label>
+                                    <input type="text" id="txt_id" name="txt_id" placeholder="Ko cần nhập ..." style="border-radius:15px;">
+                                <label style="color:white;font-size:18px;font-weight:700;">HỌ & TÊN</label>
+                                    <input type="text" id="txt_hoten" name="txt_hoten" placeholder="Tên của bạn là..." style="border-radius:15px;">
+                                <label style="color:white;font-size:18px;font-weight:700;">SDT</label>
+                                    <input type="text" id="txt_sdt" name="txt_sdt" placeholder="Sdt của bạn là..." style="border-radius:15px;">
+                                <label style="color:white;font-size:18px;font-weight:700;">Email</label>
+                                    <input type="text" id="txt_email" name="txt_email" placeholder="Email của bạn là" style="border-radius:15px;">
+                                <label style="color:white;font-size:18px;font-weight:700;">LỜI NHẮN</label>
+                                    <textarea id="txt_loinhan" name="txt_loinhan" placeholder="Hãy viếc 1 câu gì đó..." style="height:170px;border-radius:15px;"></textarea>
+                                <input type="submit" value="THÊM">
                             </form>
                         </div>
                     </div>
