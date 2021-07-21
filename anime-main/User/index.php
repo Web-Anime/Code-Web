@@ -83,6 +83,16 @@
   padding-left: 5px;
   padding-right: 5px;
 }
+.columncardblog {
+  float: left;
+  width: 33.33%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  
+}
+.cardcardblog {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 #slideshow {
   overflow: hidden;
   height: 700px;
@@ -214,7 +224,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="lichchieu.php">LỊCH CHIẾU</a></li>
-                                <li><a href="#">LIÊN HỆ</a></li>
+                                <li><a href="lienhe.php">LIÊN HỆ</a></li>
                                 <li><a href="blog.php">BLOG</a></li>
                             </ul>
                         </nav>
@@ -345,6 +355,40 @@
                             }
                         ?>
                         <a href="categories.php"><button class="btn">XEM THÊM</button></a>
+                        <!-- -------------------------------------------------- -->
+                        <div class="product__page__title">
+                            <div class="row">
+                                <div class="col-lg-10 col-md-10 col-sm-6">
+                                    <div class="section-title" style="padding-top:30px;">
+                                        <h4>TIN TỨC ANIME</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-6">
+
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                            require_once("Connection.php");
+                            $query=mysqli_query($conn,"select * from blog ORDER BY id DESC LIMIT 0, 3");
+                            while($row = mysqli_fetch_array($query)){
+                            ?>
+
+                            <div class="columncardblog">
+                              <div class="cardcardblog">
+                                <div class="containercardblog">
+                                <div class="containersoblog">
+                                    <a href="blog-details.php?id=<?php echo $row['id']; ?>"><img src="<?php echo $row['anh'];?>" alt="Jane" style="width:100%"></a>
+                                    <h5><?php echo $row['ngaydang'];?></h5>
+                                </div>
+                                  <p style="color:white;padding-top:5px;"><?php echo $row['tenblog'];?></p>
+                                </div>
+                              </div>
+                            </div>
+                            <?php
+                                }
+                            ?>    
+                            <a href="blog.php"><button class="btn">XEM THÊM</button></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <?php require_once("Connection.php"); ?>

@@ -65,7 +65,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="lichchieu.php">LỊCH CHIẾU</a></li>
-                                <li><a href="#">LIÊN HỆ</a></li>
+                                <li><a href="lienhe.php">LIÊN HỆ</a></li>
                                 <li><a href="blog.php">BLOG</a></li>
                             </ul>
                         </nav>
