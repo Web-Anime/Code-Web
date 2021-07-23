@@ -33,25 +33,20 @@
   padding: 0 8px;
   
 }
-
 .cardcard {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
 .containercard {
   padding: 0 16px;
 }
-
 .containercard::after, .rowcard::after {
   content: "";
   clear: both;
   display: table;
 }
-
 .titlecard {
   color: grey;
 }
-
 .buttoncard {
   border: none;
   outline: 0;
@@ -63,7 +58,6 @@
   cursor: pointer;
   width: 100%;
 }
-
 .buttoncard:hover {
   background-color: #555;
 }
@@ -88,7 +82,6 @@
   width: 33.33%;
   margin-bottom: 16px;
   padding: 0 8px;
-  
 }
 .cardcardblog {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -99,27 +92,21 @@
   width: 1200px;
   margin: 0 auto;
 }
-
 .slide-wrapper {
   width: 4800px;
   -webkit-animation: slide 25s ease infinite;
 }
-
 .slide {
   float: left;
   height: 400px;
   width: 1200px;
 }
-
-
 @-webkit-keyframes slide {
   10% {margin-left: 0px;}
   20% {margin-left: -1200px;}
   30% {margin-left: -1200px;}
   40% {margin-left: -2400px;}
   50% {margin-left: -2400px;}
-  
-  
 }
 .tittle h2 {
     color: white;
@@ -164,7 +151,6 @@
     text-transform: uppercase;
     border: 1px solid #1B1B1B;
     border-radius: 7px;
-
 }
 .btn {
             background-color: #000080;
@@ -181,7 +167,39 @@
             background-color: yellow;
             color:black;
         }
-
+/*------------------------------------------*/
+.dropbtn {
+  background-color: #000080;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+.dropdownbtn {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color:#000080;color:yellow;border-bottom-left-radius:10px;border-bottom-right-radius:10px;}
+.dropdownbtn:hover .dropdown-content {display: block;}
+/* ---------------------------------SEARCH----------------------- */
 </style>
 
 <body>
@@ -230,12 +248,40 @@
                         </nav>
                     </div>
                 </div>
+
                 <div class="col-lg-2">
                     <div class="header__right">
-                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="login.php"><span class="icon_profile"></span></a>
+                        <form action="" method="post">
+                            <input type="text" name="search" style="width:74%;border-radius:15px;">
+                                <input class="icon_search" type="submit" name="submit" value="" style="color:white;">
+                            <a href="login.php"><span class="icon_profile"></span></a>
+                        </form>
                     </div>
+                    <?php
+                    $servername='localhost';$username='root';$password='';$dbname = "anime";
+                    $conn=mysqli_connect($servername,$username,$password,$dbname);
+                    if(!$conn){
+                    die('Không thể kết nối Database:' .mysql_error());
+                    }
+                        if(ISSET($_POST['submit'])){
+                            $keyword = $_POST['search'];
+                    ?>
+                    <div>
+                        <?php
+                            $query = mysqli_query($conn, "SELECT * FROM anime WHERE tenanime LIKE '%$keyword%' ORDER BY tenanime") or die(mysqli_error());
+                            while($fetch = mysqli_fetch_array($query)){
+                        ?>
+                            <a href="anime-details.php?id=<?php echo $fetch['id']; ?>"><img src="<?php echo $fetch['anh'];?>" alt="Jane" style="width:80%"></a>
+                            <a href="anime-details.php?id=<?php echo $fetch['id']; ?>" style="color:white;"><?php echo $fetch['tenanime']?></a>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                    <?php
+                        }
+                    ?>
                 </div>
+
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
@@ -266,10 +312,9 @@
       <div class="slide"><img src="image/anime/7.png">
           <div class='tittle'>
              <strong><h2>MOBILE SUIT GUNDAM : IRON-BLOODED ORPHANS </h2></strong>
-              <p> Bộ anime lấy bối cảnh 300 năm sau một cuộc xung đột lớn giữa Trái Đất và Sao Hỏa được biết đến với tên gọi Thảm họa Đại chiến (Calamity War).</p>
-      
-      </div
-  </div>
+            p> Bộ anime lấy bối cảnh 300 năm sau một cuộc xung đột lớn giữa Trái Đất và Sao Hỏa được biết đến với tên gọi Thảm họa Đại chiến (Calamity War).</p>
+          </div>
+    </div>
 </div>
     </section>
  <div class="col-xs-12 col-sm-12 col-md-6">
@@ -292,7 +337,13 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6">
-
+                                    <div class="dropdownbtn">
+                                        <button class="dropbtn">Xắp xếp</button>
+                                        <div class="dropdown-content">
+                                            <a href="#">Mới nhất</a>
+                                            <a href="#">Cũ nhất</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
