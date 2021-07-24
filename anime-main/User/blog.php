@@ -144,9 +144,35 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="header__right">
-                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="./login.php"><span class="icon_profile"></span></a>
+                        <form action="#" method="post">
+                            <input type="text" name="search" style="width:74%;border-radius:15px;">
+                                <input class="icon_search" type="submit" name="submit" value="" style="color:white;">
+                            <a href="login.php"><span class="icon_profile"></span></a>
+                        </form>
                     </div>
+                    <?php
+                    $servername='localhost';$username='root';$password='';$dbname = "anime";
+                    $conn=mysqli_connect($servername,$username,$password,$dbname);
+                    if(!$conn){
+                    die('Không thể kết nối Database:' .mysql_error());
+                    }
+                        if(ISSET($_POST['submit'])){
+                            $keyword = $_POST['search'];
+                    ?>
+                    <div>
+                        <?php
+                            $query = mysqli_query($conn, "SELECT * FROM blog WHERE tenblog LIKE '%$keyword%' ORDER BY tenblog") or die(mysqli_error());
+                            while($fetch = mysqli_fetch_array($query)){
+                        ?>
+                            <a href="blog-details.php?id=<?php echo $fetch['id']; ?>"><img src="<?php echo $fetch['anh'];?>" alt="Jane" style="width:80%"></a>
+                            <a href="blog-details.php?id=<?php echo $fetch['id']; ?>" style="color:white;"><?php echo $fetch['tenblog']?></a>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
             <div id="mobile-menu-wrap"></div>
@@ -196,7 +222,7 @@
                         <div class="columnblog2" style="background-color:#FFEC8B;">
                             <a href="blog-details.php?id=<?php echo $row['id']; ?>"><h2 style="color:black;padding-top:5px;padding-bottom:5px;"><?php echo $row['tenblog'];?></h2></a>
                             <p><?php echo $row['ngaydang'];?></p>
-                            <p><?php echo $row['motaindex'];?></p>
+                            <p><?php echo substr($row['tenblog'], 0, 100)?>...</p>
                         </div>
                     </div>
                     <br>
