@@ -97,16 +97,16 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>Login</h3>
-                        <form action="#">
+                        <form action="../Login/Xulyloginform.php" method="POST" onsubmit="return validateLogin()">
                             <div class="input__item">
-                                <input type="text" placeholder="Email address">
+                                <input type="text" placeholder="Email address"name="username">
                                 <span class="icon_mail"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="Password">
+                                <input type="text" placeholder="Password"name="password">
                                 <span class="icon_lock"></span>
                             </div>
-                            <button type="submit" class="site-btn">Login Now</button>
+                            <button type="submit" class="site-btn"name="btn_Login">Login Now</button>
                         </form>
                         <a href="#" class="forget_pass">Forgot Your Password?</a>
                     </div>

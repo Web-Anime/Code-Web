@@ -18,17 +18,13 @@ if (isset($_POST['btn_Login'])){
         if($num_rows==0){
             header('location:KhongDung.php');
         }else{
-            //$_COOKIE['username'] = $username;
-            //$_COOKIE['password'] = $password;
             
-            setcookie('username',$_POST['username'],time()+3000);
-            setcookie('password',$_POST['password'],time()+3000);
-            header('location:../Login/CookieAndSession/ShowCookie.php');
+            session_start();//bắt đầu
+            $_SESSION['username'] = $username;//khởi tạo
+            $_SESSION['password'] = $password;//khởi tạo
             
-            //$_SESSION['username'] = $username;
-            //thực hiện hành động sau khi lưu thông tin vào session
-            //ở đây mình tiến hành chuyển hướng trang web tới một trang gọi là home.php
-            //header('location:../Login/home.php');
+            header("location:../Login/CookieAndSession/showSESSION.php");
+            //header("location:home.php");
         }
     }
             
