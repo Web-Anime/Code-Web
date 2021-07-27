@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,18 +11,19 @@
         <link rel="stylesheet" type="text/css" href="Public/css/styleform.css">
 </head>  
 <body>
-    <h1>Kiểm tra Cookie</h1>
+    <h1>Kiểm tra SESSION</h1>
     <?php
-        if(isset($_COOKIE['username']) && isset($_COOKIE['password'])){
-            echo("Tên truy cập: " .$_COOKIE['username']);
-            echo("<br>Mật khẩu truy cập: " .$_COOKIE['password']);
+        session_start();
+        if(isset($_SESSION['username']) && isset($_SESSION['password'])){
+            echo("Tên truy cập: " .$_SESSION['username']);
+            echo("<br>Mật khẩu truy cập: " .$_SESSION['password']);
         }else{
-            echo("Cookie không tồn tại!");
+            echo("Session không tồn tại!");
         }   
     ?>
     <br>
     <a href="">Trở về trang cookie</a>
     <br>
-    <a href="deleteCookie.php">Hủy Cookie</a>
+    <a href="">Hủy Cookie</a>
 </body>
 </html>
