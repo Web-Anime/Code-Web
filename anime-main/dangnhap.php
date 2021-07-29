@@ -1,5 +1,5 @@
 <?php
-require_once 'Cn.php';
+require_once 'Connection.php';
 if (isset($_POST['btn_Login'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -11,12 +11,14 @@ if (isset($_POST['btn_Login'])){
     $password = addslashes($password);
     if($username ==""||$password == ""){
         echo "<script>alert('Username hoặc Password ko đuwocj bỏ trống');</script>";
+        require_once 'login.php';
     }else{
         $sql = "select * from khachhang where USERNAME='$username' and PASSWORD='$password'";
         $query = mysqli_query($conn, $sql);
         $num_rows = mysqli_num_rows($query);
         if($num_rows==0){
             echo "<script>alert('Username hoặc Password sai');</script>";
+            require_once 'login.php';
         }else{
             
             session_start();//bắt đầu
