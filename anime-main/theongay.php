@@ -4,7 +4,7 @@
 
 <head>
     <title>Top Anime | Theo Ngày</title>
-<?php include 'View/Client/Layout/Header.php'; ?>
+<?php include 'View/Client/Layout/Link.php'; ?>
 </head>
 <style>
 /* Add a card effect for articles */
