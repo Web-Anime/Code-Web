@@ -2,6 +2,7 @@
 <html lang="zxx">
 
 <head>
+    <LINK REL="SHORTCUT ICON"  HREF="View/Client/WIBU.png">
     <title>Thể Loại | Hành Động</title>
     <?php include 'View/Client/Layout/Link.php'; ?>
 </head>
