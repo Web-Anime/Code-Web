@@ -3,6 +3,7 @@
 <html lang="zxx">
 
 <head>
+    <LINK REL="SHORTCUT ICON"  HREF="View/Client/WIBU.png">
     <title>Top Anime | Theo Ngày</title>
 <?php include 'View/Client/Layout/Link.php'; ?>
 </head>
