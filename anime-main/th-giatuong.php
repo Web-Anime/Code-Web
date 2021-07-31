@@ -4,7 +4,7 @@
 <head>
     <LINK REL="SHORTCUT ICON"  HREF="View/Client/WIBU.png">
     <LINK REL="SHORTCUT ICON"  HREF="View/Client/WIBU.png">
-    <title>Thể loại | Giả Tưởng</title>
+    <title>Thể loại Anime | Giả Tưởng</title>
     <?php include 'View/Client/Layout/Link.php'; ?>
 </head>
 
