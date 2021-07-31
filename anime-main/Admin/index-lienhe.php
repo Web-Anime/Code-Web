@@ -126,6 +126,54 @@ body {
   background-color: yellow;
   color:black;
 }
+/* --------------------------------------------------- */
+.column1 {
+  float: left;
+  width: 70%;
+  padding: 10px;
+  height: auto;
+}
+.column2 {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  height: auto;
+}
+.column3 {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  height: auto;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid #000080;
+  float: left;
+  width: 80%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px; 
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #000080;
+  color: white;
+  font-size: 17px;
+  border: 1px solid #000080;
+  border-left: none;
+  cursor: pointer;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 </style>
 
 <body>
@@ -151,11 +199,7 @@ body {
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
-    <!-- Header End -->
 
-    <!-- Hero Section End -->
-
-    <!-- Product Section Begin -->
             <div class="row">
                 <div class="side">
                     <div class="sidenav">
@@ -176,7 +220,19 @@ body {
                     </div>
                 </div>
                 <div class="main">
-                    <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH LIÊN HỆ</h3>
+                    <div class="row">
+                        <div class="column1">
+                            <h2 style="color: white;font-weight:700px;">DANH SÁCH BLOG</h2>
+                        </div>
+                        <div class="column2">
+                            <form class="example" action="#" method="POST">
+                                <input type="text" placeholder="Search.." name="search">
+                                <button type="submit" name="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="column3">
+                        </div>
+                    </div>
                     <table border="1" align="center" cellspacing="0" cellpadding="0" witch="850px" style="color:white;">
                         <tr>
                             <th align="center">ID</th>
