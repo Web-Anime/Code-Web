@@ -142,6 +142,54 @@ body {
   background-color: yellow;
   color:black;
 }
+/* --------------------------------------------------- */
+.column1 {
+  float: left;
+  width: 70%;
+  padding: 10px;
+  height: auto;
+}
+.column2 {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  height: auto;
+}
+.column3 {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  height: auto;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid #000080;
+  float: left;
+  width: 80%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px; 
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #000080;
+  color: white;
+  font-size: 17px;
+  border: 1px solid #000080;
+  border-left: none;
+  cursor: pointer;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 </style>
 
 <body>
@@ -149,11 +197,7 @@ body {
     <div id="preloder">
         <div class="loader"></div>
     </div>
-    <!-- Header End -->
 
-    <!-- Hero Section End -->
-
-    <!-- Product Section Begin -->
             <div class="row">
                 <div class="side">
                     <div class="sidenav">
@@ -174,7 +218,61 @@ body {
                     </div>
                 </div>
                 <div class="main">
-                    <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH TOP ANIME THEO NGÀY</h3>
+                    <div class="row">
+                        <div class="column1">
+                            <h2 style="color: white;font-weight:700px;">DANH SÁCH TOP ANIME THEO NGÀY</h2>
+                        </div>
+                        <div class="column2">
+                            <form class="example" action="#" method="POST">
+                                <input type="text" placeholder="Search.." name="search">
+                                <button type="submit" name="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="column3">
+                            <?php
+                                $servername='localhost';$username='root';$password='';$dbname = "anime";
+                                $conn=mysqli_connect($servername,$username,$password,$dbname);
+                                if(!$conn){
+                                die('Không thể kết nối Database:' .mysql_error());
+                                }
+                                    if(ISSET($_POST['submit'])){
+                                        $keyword = $_POST['search'];
+                                ?>
+                                <div>
+                                    <?php
+                                        $query = mysqli_query($conn, "SELECT * FROM topngay WHERE id LIKE '%$keyword%' ORDER BY id") or die(mysqli_error());
+                                        while($fetch = mysqli_fetch_array($query)){
+                                    ?>
+                                    <table border="1" cellspacing="0" cellpadding="0" style="color:white;"> 
+                                            <tr style="text-align:center;">
+                                                <th>ID</th>
+                                                <th>ẢNH</th>
+                                                <th>TÊN ANIME</th>
+                                                <th>MÔ TẢ</th>
+                                                <th>LƯỢT XEM</th>
+                                                <th>TÁC VỤ</th>
+                                            </tr>
+                                            <tr>
+                                            <td><?php echo $fetch['id'];?></td>
+                                            <td><img src="<?php echo $fetch['anh'];?>" alt="Jane" style="width:100%"></td>
+                                            <td><?php echo $fetch['tenanime'];?></td>
+                                            <td><?php echo $fetch['mota'];?></td>
+                                            <td><?php echo $fetch['luotxem'];?></td>
+                                            <td>
+                                                <a href="xulyxoa-topanime.php?id=<?php echo $id; ?>"><input type="submit" value="XÓA" class="btn-button"></a>
+                                                <a href="suadulieu-topanime.php?id=<?php echo $id; ?>"><input type="submit" value="SỬA" class="btn-button"></a>
+                                            </td>
+                                        </tr>
+                                        </table>
+                                    <?php
+                                        }
+                                    ?>
+                                </div>
+                                <?php
+                                    }
+                                ?>
+                        </div>
+                    </div>
                     <table border="1" align="center" cellspacing="0" cellpadding="0" witch="850px" style="color:white;">
                         <input type="submit" value="THÊM MỚI" class="btn" onclick="myFunction()">
                         <tr>
@@ -199,7 +297,7 @@ body {
                     ?>
                         <tr>
                             <td><?php echo $id ?></td>
-                            <td><?php echo $anh?></td>
+                            <td><img src="<?php echo $anh?>" alt="Jane" style="width:60%"></td>
                             <td><?php echo $tenanime ?></td>
                             <td><?php echo $mota ?></td>
                             <td><?php echo $luotxem ?></td>
