@@ -86,7 +86,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="./index-user.php"><i class="fa fa-home"></i>TRANG CHỦ</a>
+                        <a href="./index-user.php"><i class="fa fa-home"></i>TRANG</a>
                         <span>BLOG</span>
                     </div>
                 </div>
