@@ -3,7 +3,7 @@
 
 <head>
     <LINK REL="SHORTCUT ICON"  HREF="View/Client/WIBU.png">
-    <title>Anime | Blog</title>
+    <title>Anime | Blogger</title>
     <?php include 'View/Client/Layout/Link.php'; ?>
 </head>
 <style>
