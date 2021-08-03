@@ -7,7 +7,7 @@
   <div class="slide-wrapper">
       <div class="slide"><img src="Public/image/anime/5.jpg">
           <div class='tittle' >
-              <strong><h2>Bleach : The War</h2></strong>
+              <strong><h2>Bleach : The Wa</h2></strong>
               <p> Kể về những cuộc phiêu lưu của Kurosaki Ichigo 
                   sau khi anh có được những sức mạnh của "Shinigami"(死神, Tử thần)</p>
               
