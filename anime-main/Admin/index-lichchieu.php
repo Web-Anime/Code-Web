@@ -167,7 +167,7 @@
                         <a href="#">THEO THÁNG</a>
                         <a href="#">THEO NĂM</a>
                     </div>
-                        <a href="index-lichchieu.php">LỊCH CHIẾU</a>
+                        <a href="index-lichchieu.php">LỊCH CHIẾU ANIME</a>
                         <a href="index-lienhe.php">LIÊN HỆ</a>
                         <a href="index-blog.php">BLOG</a>
                         <a href="index-nguoidung.php">NGƯỜI DÙNG</a>
