@@ -112,6 +112,22 @@ body {
   float: right;
   padding-right: 8px;
 }
+.btn {
+  background-color: #000080;
+  color: white;
+  padding: 12px;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.btn:hover {
+  background-color: yellow;
+  color:black;
+}
 .btn-button {
   background-color: #000080;
   color: white;
@@ -134,23 +150,6 @@ body {
         <div class="loader"></div>
     </div>
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="header__nav">
-                        <nav class="header__menu mobile-menu">
-                            <ul>
-                                <li></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
     <!-- Header End -->
 
     <!-- Hero Section End -->
@@ -177,36 +176,34 @@ body {
                     </div>
                 </div>
                 <div class="main">
-                    <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH LIÊN HỆ</h3>
+                    <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH TÀI KHOẢN KHÁCH HÀNG</h3>
                     <table border="1" align="center" cellspacing="0" cellpadding="0" witch="850px" style="color:white;">
+                        <input type="submit" value="THÊM MỚI" class="btn" onclick="myFunction()">
                         <tr>
-                            <th align="center">ID</th>
-                            <th align="center">HỌ & TÊN</th>
-                            <th align="center">SDT</th>
-                            <th align="center">EMAIL</th>
-                            <th align="center">LỜI NHẮN</th>
-                            <th align="center">TÁC VỤ</th>
+                            <th align="center">MÃ TÀI KHOẢN</th>
+                            <th align="center">TÀI KHOẢN</th>
+                            <th align="center">MẬT KHẨU</th>
+                            <th align="center">CHỨC NĂNG</th>
                         </tr>
                     <?php 
                     $conn = mysqli_connect("localhost", "root", "", "anime");
-                    $sql = "SELECT * FROM lienhe";
+                    $sql = "SELECT * FROM khachhang";
                     $result = mysqli_query($conn ,$sql);
                     while($row = mysqli_fetch_assoc($result))
                     {
-                        $id = $row["id"];
-                        $hoten = $row["hoten"];
-                        $sdt = $row["sdt"];
-                        $email = $row["email"];
-                        $loinhan = $row["loinhan"];
+                        $id = $row['id'];
+                        $username = $row['username'];
+                        $password = $row['password'];
+                        
                     ?>
                         <tr>
-                            <td><?php echo $id ?></td>
-                            <td><?php echo $hoten?></td>
-                            <td><?php echo $sdt ?></td>
-                            <td><?php echo $email ?></td>
-                            <td><?php echo $loinhan ?></td>
+                             <td><?php echo $id?></td>
+                            <td><?php echo $username?></td>
+                            <td><?php echo $password?></td>
+                            
                             <td>
-                                <a href="xulyxoa-lienhe.php?id=<?php echo $id; ?>"><input type="submit" value="XÓA" class="btn-button"></a>
+                                <a href="xulyxoa-khachhang.php?id=<?php echo $id; ?>"><input type="submit" value="XÓA" class="btn-button"></a>
+                                <a href="suadulieu-khachhang.php?id=<?php echo $id; ?>"><input type="submit" value="SỬA" class="btn-button"></a>
                             </td>
                         </tr>
                         <?php 
@@ -235,7 +232,6 @@ body {
             </div>
             <div class="col-lg-3">
 
-
               </div>
           </div>
       </div>
@@ -258,6 +254,11 @@ body {
 <script src="js/main.js"></script>
 </body>
 </html>
+<script>
+    function myFunction(){
+        location.replace("themdulieu-blog.php");
+    }
+</script>
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");

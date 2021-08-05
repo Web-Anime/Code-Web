@@ -142,58 +142,6 @@ body {
   background-color: yellow;
   color:black;
 }
-
-.topnav {
-  overflow: hidden;
-}
-/* --------------------------------------------------- */
-.column1 {
-  float: left;
-  width: 70%;
-  padding: 10px;
-  height: auto;
-}
-.column2 {
-  float: left;
-  width: 30%;
-  padding: 10px;
-  height: auto;
-}
-.column3 {
-  float: left;
-  width: 100%;
-  padding: 10px;
-  height: auto;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid #000080;
-  float: left;
-  width: 80%;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px; 
-}
-
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #000080;
-  color: white;
-  font-size: 17px;
-  border: 1px solid #000080;
-  border-left: none;
-  cursor: pointer;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
 </style>
 
 <body>
@@ -201,6 +149,7 @@ form.example button {
     <div id="preloder">
         <div class="loader"></div>
     </div>
+
             <div class="row">
                 <div class="side">
                     <div class="sidenav">
@@ -218,74 +167,11 @@ form.example button {
                         <a href="index-lienhe.php">LIÊN HỆ</a>
                         <a href="index-blog.php">BLOG</a>
                         <a href="index-nguoidung.php">NGƯỜI DÙNG</a>
+                        <a href="index-admin.php">ADMIN</a>
                     </div>
                 </div>
                 <div class="main">
-                    <div class="row">
-                        <div class="column1">
-                            <h2 style="color: white;font-weight:700px;">DANH SÁCH ANIME</h2>
-                        </div>
-                        <div class="column2">
-                            <form class="example" action="#" method="POST">
-                                <input type="text" placeholder="Search.." name="search">
-                                <button type="submit" name="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                        <div class="column3">
-                            <?php
-                                $servername='localhost';$username='root';$password='';$dbname = "anime";
-                                $conn=mysqli_connect($servername,$username,$password,$dbname);
-                                if(!$conn){
-                                die('Không thể kết nối Database:' .mysql_error());
-                                }
-                                    if(ISSET($_POST['submit'])){
-                                        $keyword = $_POST['search'];
-                                ?>
-                                <div>
-                                    <?php
-                                        $query = mysqli_query($conn, "SELECT * FROM anime WHERE tenanime LIKE '%$keyword%' ORDER BY tenanime") or die(mysqli_error());
-                                        while($fetch = mysqli_fetch_array($query)){
-                                    ?>
-                                    <table border="1" cellspacing="0" cellpadding="0" style="color:white;"> 
-                                            <tr style="text-align:center;">
-                                                <th>ID</th>
-                                                <th>DANH MỤC</th>
-                                                <th>ẢNH</th>
-                                                <th>TÊN ANIME</th>
-                                                <th>MÔ TẢ</th>
-                                                <th>SỐ TẬP</th>
-                                                <th>FILM</th>
-                                                <th>TRẠNG THÁI</th>
-                                                <th>NĂM PH</th>
-                                                <th>LƯỢT XEM</th>
-                                                <th>TÁC VỤ</th>
-                                            </tr>
-                                            <tr>
-                                            <td><?php echo $fetch['id'];?></td>
-                                            <td><?php echo $fetch['danhmuc'];?></td>
-                                            <td><img src="<?php echo $fetch['anh'];?>" alt="Jane" style="width:100%"></td>
-                                            <td><?php echo $fetch['tenanime'];?></td>
-                                            <td><?php echo $fetch['mota'];?></td>
-                                            <td><?php echo $fetch['sotap'];?></td>
-                                            <td><?php echo $fetch['film'];?></td>
-                                            <td><?php echo $fetch['trangthai'];?></td>
-                                            <td><?php echo $fetch['namphathanh'];?></td>
-                                            <td><?php echo $fetch['luotxem'];?></td>
-                                            <td>
-                                                <a href="xulyxoa-anime.php?id=<?php echo $id; ?>"><input type="submit" value="XÓA" class="btn-button"></a>
-                                                <a href="sua-anime.php?id=<?php echo $id; ?>"><input type="submit" value="SỬA" class="btn-button"></a>
-                                            </td>
-                                        </tr>
-                                        </table>
-                                    <?php
-                                        }
-                                    ?>
-                                </div>
-                                <?php
-                                    }
-                                ?>
-                        </div>
-                    </div>
+                    <h3 align="center" style="color:white;">DANH SÁCH ANIME</h3>
                     <table border="1" cellspacing="0" cellpadding="0" style="color:white;margin-top:10px;">
                         <input type="submit" value="THÊM MỚI" class="btn" onclick="myFunction()">   
                         <tr style="text-align:center;">
@@ -321,7 +207,7 @@ form.example button {
                         <tr>
                             <td><?php echo $id ?></td>
                             <td><?php echo $danhmuc ?></td>
-                            <td><img src="<?php echo $anh ?>" alt="Jane" style="width:100%"><td>
+                            <td><?php echo $anh ?></td>
                             <td><?php echo $tenanime ?></td>
                             <td><?php echo $mota ?></td>
                             <td><?php echo $sotap ?></td>
