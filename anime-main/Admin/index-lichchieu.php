@@ -167,7 +167,7 @@
                         <a href="#">THEO THÁNG</a>
                         <a href="#">THEO NĂM</a>
                     </div>
-                        <a href="index-lichchieu.php">LỊCH CHIẾU ANIME</a>
+                        <a href="index-lichchieu.php">LỊCH CHIẾU</a>
                         <a href="index-lienhe.php">LIÊN HỆ</a>
                         <a href="index-blog.php">BLOG</a>
                         <a href="index-nguoidung.php">NGƯỜI DÙNG</a>
@@ -175,7 +175,7 @@
                 </div>
             </div>
             <div class="main">
-                <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH ANIME SẮP CÔNG CHIẾU</h3>
+                <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH CÁC ANIME MỚI SẮP CÔNG CHIẾU</h3>
                 <table border="1" align="center" cellspacing="0" cellpadding="0" witch="850px" style="color:white;">
                     <input type="submit" value="THÊM MỚI" class="btn" onclick="myFunction()">
                     <tr>
