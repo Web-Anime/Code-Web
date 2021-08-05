@@ -169,7 +169,7 @@
                             <div class="row">
                                 <div class="col-lg-10 col-md-10 col-sm-6">
                                     <div class="section-title">
-                                        <h4>LỊCH CHIẾU Phim: <a href="#lichchieu-2" style="color:yellow;padding-left:15px;">Thứ 2</a> 
+                                        <h4>LỊCH CHIẾU: <a href="#lichchieu-2" style="color:yellow;padding-left:15px;">Thứ 2</a> 
                                         <a href="#lichchieu-3" style="color:yellow;padding-left:15px;">Thứ 3</a> 
                                         <a href="#lichchieu-4" style="color:yellow;padding-left:15px;">Thứ 4</a>
                                         <a href="#lichchieu-5" style="color:yellow;padding-left:15px;">Thứ 5</a>
