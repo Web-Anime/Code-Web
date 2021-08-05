@@ -3,7 +3,7 @@
 
 <head>
     <LINK REL="SHORTCUT ICON"  HREF="View/Client/WIBU.png">
-    <title>Thể Loại | Giới Thiệu</title>
+    <title>Thể Loại | Giới Thiệu Anime</title>
     <?php include 'View/Client/Layout/Link.php'; ?>
 </head>
 
