@@ -1,9 +1,9 @@
 <?php
 
 $conn = mysqli_connect("localhost", "root", "", "anime");
-$username = $_GET["id"];
+$id = $_GET["id"];
 
-$sql = "DELETE FROM khachhang WHERE id = '$username'";
+$sql = "DELETE FROM khachhang WHERE id = '$id'";
 if (mysqli_query($conn, $sql))
 {
     header('location: index-nguoidung.php');

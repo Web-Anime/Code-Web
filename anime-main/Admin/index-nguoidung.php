@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="zxx">
 
 <head>
@@ -173,6 +173,8 @@ body {
                         <a href="index-blog.php">BLOG</a>
                         <a href="index-nguoidung.php">NGƯỜI DÙNG</a>
                         <a href="index-admin.php">ADMIN</a>
+                        <a href="login-admin.php">ĐĂNG NHẬP</a>
+                        <a href="../dangxuat-admin.php">ĐĂNG XUẤT</a>
                     </div>
                 </div>
                 <div class="main">
@@ -185,6 +187,7 @@ body {
                             <th align="center">MẬT KHẨU</th>
                             <th align="center">CHỨC NĂNG</th>
                         </tr>
+                    <?php if(isset($_SESSION['admin']) && isset($_SESSION['pass'])){ ?>
                     <?php 
                     $conn = mysqli_connect("localhost", "root", "", "anime");
                     $sql = "SELECT * FROM khachhang";
@@ -211,6 +214,11 @@ body {
                         ?>
                         <?php 
                         mysqli_close($conn); ?>
+                        
+                        <?php }else{
+                            echo "<script>alert('Bạn Chưa đăng nhập! Vui lòng đăng nhập!');</script>";
+                        }
+                        ?>
                     </table>
                 </div>
             </div>
@@ -256,7 +264,7 @@ body {
 </html>
 <script>
     function myFunction(){
-        location.replace("themdulieu-blog.php");
+        location.replace("themdulieu-nguoidung.php");
     }
 </script>
 <script>

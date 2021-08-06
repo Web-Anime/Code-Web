@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="zxx">
 
 <head>
@@ -11,6 +11,9 @@
     <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0&appId=503662930730314&autoLogAppEvents=1" nonce="ZpGbLPVX"></script>
     <?php include 'View/Client/Layout/Menu.php'; ?>
+    <?php if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
+            
+        
     <?php
                         // Kết nối Database
                         require_once("Connection.php");
@@ -79,6 +82,11 @@
             </div>
         </div>
     </section>
+    <?php }else{
+            echo "<script>alert('Bạn Chưa đăng nhập! Vui lòng đăng nhập để xem phim!');</script>";
+            
+          }
+        ?>
  <?php include 'View/Client/Layout/Footer.php'; ?>
 <?php include 'View/Client/Layout/Script.php'; ?>
 </body>

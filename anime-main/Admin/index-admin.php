@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ADMIN ANIME</title>
+    <title>ADMIN BLOG</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -149,6 +149,7 @@ body {
     <div id="preloder">
         <div class="loader"></div>
     </div>
+
     <!-- Header End -->
 
     <!-- Hero Section End -->
@@ -177,40 +178,44 @@ body {
                     </div>
                 </div>
                 <div class="main">
-                    <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH TOP ANIME THEO NGÀY</h3>
+                    <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH TÀI KHOẢN ADMIN</h3>
                     <table border="1" align="center" cellspacing="0" cellpadding="0" witch="850px" style="color:white;">
                         <input type="submit" value="THÊM MỚI" class="btn" onclick="myFunction()">
                         <tr>
-                            <th align="center">ID</th>
-                            <th align="center">ẢNH</th>
-                            <th align="center">TÊN ANIME</th>
-                            <th align="center">MÔ TẢ</th>
-                            <th align="center">LƯỢT XEM</th> 
-                            <th align="center">TÁC VỤ</th>
+                            <th align="center">MÃ TÀI KHOẢN</th>
+                            <th align="center">TÀI KHOẢN</th>
+                            <th align="center">MẬT KHẨU</th>
+                            <th align="center">TÊN ADMIN</th>
+                            <th align="center">EMAIL</th>
+                            <th align="center">SỐ ĐIỆN THOẠI</th>
+                            <th align="center">CHỨC NĂNG</th>
                         </tr>
-                        
                     <?php if(isset($_SESSION['admin']) && isset($_SESSION['pass'])){ ?>
                     <?php 
                     $conn = mysqli_connect("localhost", "root", "", "anime");
-                    $sql = "SELECT * FROM topngay";
+                    $sql = "SELECT * FROM admin";
                     $result = mysqli_query($conn ,$sql);
                     while($row = mysqli_fetch_assoc($result))
                     {
-                        $id = $row["id"];
-                        $anh = $row["anh"];
-                        $tenanime = $row["tenanime"];
-                        $mota = $row["mota"];
-                        $luotxem = $row["luotxem"];
+                        $id = $row['id'];
+                        $admin = $row['admin'];
+                        $pass = $row['pass'];
+                        $name = $row['name'];
+                        $email = $row['email'];
+                        $sdt = $row['sdt'];
+                        
                     ?>
                         <tr>
-                            <td><?php echo $id ?></td>
-                            <td><?php echo $anh?></td>
-                            <td><?php echo $tenanime ?></td>
-                            <td><?php echo $mota ?></td>
-                            <td><?php echo $luotxem ?></td>
+                            <td><?php echo $id?></td>
+                            <td><?php echo $admin?></td>
+                            <td><?php echo $pass?></td>
+                            <td><?php echo $name?></td>
+                            <td><?php echo $email?></td>
+                            <td><?php echo $sdt?></td>
+                            
                             <td>
-                                <a href="xulyxoa-topanime.php?id=<?php echo $id; ?>"><input type="submit" value="XÓA" class="btn-button"></a>
-                                <a href="suadulieu-topanime.php?id=<?php echo $id; ?>"><input type="submit" value="SỬA" class="btn-button"></a>
+                                <a href="xulyxoa-admin.php?id=<?php echo $id; ?>"><input type="submit" value="XÓA" class="btn-button"></a>
+                                <a href="suadulieu-admin.php?id=<?php echo $id; ?>"><input type="submit" value="SỬA" class="btn-button"></a>
                             </td>
                         </tr>
                         <?php 
@@ -243,9 +248,6 @@ body {
                 </div>
             </div>
             <div class="col-lg-3">
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 
               </div>
           </div>
@@ -271,7 +273,7 @@ body {
 </html>
 <script>
     function myFunction(){
-        location.replace("themdulieu-topanime.php");
+        location.replace("themdulieu-admin.php");
     }
 </script>
 <script>

@@ -149,11 +149,7 @@ body {
     <div id="preloder">
         <div class="loader"></div>
     </div>
-    <!-- Header End -->
 
-    <!-- Hero Section End -->
-
-    <!-- Product Section Begin -->
             <div class="row">
                 <div class="side">
                     <div class="sidenav">
@@ -161,7 +157,7 @@ body {
                         <a href="Index-anime.php"><i class="bi bi-house-door"></i>ANIME</a>
                         <button class="dropdown-btn">TOP ANIME 
                           <i class="fa fa-caret-down"></i>
-                            </button>
+                        </button>
                         <div class="dropdown-container">
                           <a href="index-topanime.php">THEO NGÀY</a>
                           <a href="#">THEO THÁNG</a>
@@ -177,52 +173,16 @@ body {
                     </div>
                 </div>
                 <div class="main">
-                    <h3 align="center" style="color:white;margin-bottom:10px;">DANH SÁCH TOP ANIME THEO NGÀY</h3>
-                    <table border="1" align="center" cellspacing="0" cellpadding="0" witch="850px" style="color:white;">
-                        <input type="submit" value="THÊM MỚI" class="btn" onclick="myFunction()">
-                        <tr>
-                            <th align="center">ID</th>
-                            <th align="center">ẢNH</th>
-                            <th align="center">TÊN ANIME</th>
-                            <th align="center">MÔ TẢ</th>
-                            <th align="center">LƯỢT XEM</th> 
-                            <th align="center">TÁC VỤ</th>
-                        </tr>
-                        
+                    
                     <?php if(isset($_SESSION['admin']) && isset($_SESSION['pass'])){ ?>
-                    <?php 
-                    $conn = mysqli_connect("localhost", "root", "", "anime");
-                    $sql = "SELECT * FROM topngay";
-                    $result = mysqli_query($conn ,$sql);
-                    while($row = mysqli_fetch_assoc($result))
-                    {
-                        $id = $row["id"];
-                        $anh = $row["anh"];
-                        $tenanime = $row["tenanime"];
-                        $mota = $row["mota"];
-                        $luotxem = $row["luotxem"];
-                    ?>
-                        <tr>
-                            <td><?php echo $id ?></td>
-                            <td><?php echo $anh?></td>
-                            <td><?php echo $tenanime ?></td>
-                            <td><?php echo $mota ?></td>
-                            <td><?php echo $luotxem ?></td>
-                            <td>
-                                <a href="xulyxoa-topanime.php?id=<?php echo $id; ?>"><input type="submit" value="XÓA" class="btn-button"></a>
-                                <a href="suadulieu-topanime.php?id=<?php echo $id; ?>"><input type="submit" value="SỬA" class="btn-button"></a>
-                            </td>
-                        </tr>
-                        <?php 
-                        }
+                        <?php echo "<script>alert('Bạn đã đăng nhập tài khoản rồi');</script>";
+                                require_once  'Index-anime.php';
                         ?>
-                        <?php 
-                        mysqli_close($conn); ?>
-                        
                         <?php }else{
-                            echo "<script>alert('Bạn Chưa đăng nhập! Vui lòng đăng nhập!');</script>";
+                                require_once 'login-admin.php';
                         }
                         ?>
+                       
                     </table>
                 </div>
             </div>
@@ -243,9 +203,7 @@ body {
                 </div>
             </div>
             <div class="col-lg-3">
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+
 
               </div>
           </div>
@@ -271,7 +229,7 @@ body {
 </html>
 <script>
     function myFunction(){
-        location.replace("themdulieu-topanime.php");
+        location.replace("them-anime.php");
     }
 </script>
 <script>

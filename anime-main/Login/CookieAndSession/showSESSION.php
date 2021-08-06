@@ -15,11 +15,18 @@
     <?php
         session_start();
         if(isset($_SESSION['username']) && isset($_SESSION['password'])){
-            echo("Tên truy cập: " .$_SESSION['username']);
-            echo("<br>Mật khẩu truy cập: " .$_SESSION['password']);
+            echo("Tên truy cập user: " .$_SESSION['username']);
+            echo("<br>Mật khẩu truy cập user: " .$_SESSION['password']);
         }else{
-            echo("Session không tồn tại!");
-        }   
+            echo("Session user không tồn tại!");
+        } 
+        
+        if(isset($_SESSION['admin']) && isset($_SESSION['pass'])){
+            echo("<br>Tên truy cập admin: " .$_SESSION['admin']);
+            echo("<br>Mật khẩu truy cập admin: " .$_SESSION['pass']);
+        }else{
+            echo("<br>Session admin không tồn tại!");
+        }
     ?>
     <br>
     <a href="">Trở về trang cookie</a>
